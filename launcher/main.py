@@ -13,7 +13,7 @@ from bootstrap import Bootstrap, BootstrapApp
 if platform == 'android':
     from jnius import autoclass
     Environment = autoclass('android.os.Environment')
-    sdcard = Environment.getExternalStorageDirectory()
+    sdcard = Environment.getExternalStorageDirectory().getPath()
     print('sdcard', sdcard)
     ROOT = pypath.local(sdcard).join('mcont')
     local = False
