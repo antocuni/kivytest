@@ -11,7 +11,7 @@ version = 0.1
 requirements =
     android,
     hostpython3==3.8.1,
-    Kivy==58e70b1,
+    Kivy==2.0.0,
     libiconv,
     libzbar,
     Pillow==7.0.0,

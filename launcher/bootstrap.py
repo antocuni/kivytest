@@ -1,6 +1,6 @@
 import sys
 import time
-from cStringIO import StringIO
+from io import StringIO
 from zipfile import ZipFile
 import pypath
 import requests
@@ -55,7 +55,7 @@ class Bootstrap(object):
         try:
             resp = requests.get(url, timeout=TIMEOUT)
             resp.raise_for_status()
-        except requests.RequestException, e:
+        except requests.RequestException as e:
             Logger.error('bootstrap: cannot download src.zip: %s', e)
             return None
         else:
@@ -191,7 +191,7 @@ class BootstrapApp(App):
             try:
                 resp = requests.get(url, timeout=TIMEOUT)
                 resp.raise_for_status()
-            except requests.RequestException, e:
+            except requests.RequestException as e:
                 Logger.error('bootstrap: server still offline: %s', e)
                 time.sleep(0.5) # make sure that the checking text is visible
                                 # to the user
