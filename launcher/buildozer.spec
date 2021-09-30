@@ -7,7 +7,7 @@ package.domain = eu.antocuni
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,json
 
-version = 0.1
+version = 0.2
 requirements =
     android,
     hostpython3==3.8.1,
@@ -24,7 +24,7 @@ orientation = portrait
 fullscreen = 0
 
 android.arch = armeabi-v7a
-android.permissions = INTERNET,CAMERA
+android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE
 
 # (int) Target Android API, should be as high as possible.
 #android.api = 27

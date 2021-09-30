@@ -12,6 +12,9 @@ from bootstrap import Bootstrap, BootstrapApp
 
 if platform == 'android':
     from jnius import autoclass
+    print('requesting permission...')
+    from android.permissions import request_permissions, Permission
+    request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
     Environment = autoclass('android.os.Environment')
     sdcard = Environment.getExternalStorageDirectory().getPath()
     print('sdcard', sdcard)
