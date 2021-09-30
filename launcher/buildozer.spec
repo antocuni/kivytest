@@ -1,7 +1,7 @@
 [app]
 
-title = Kivy Generic Launcher
-package.name = launcher
+title = Kivy py2 Generic Launcher
+package.name = launcher27
 package.domain = eu.antocuni
 
 source.dir = .
@@ -10,7 +10,7 @@ source.include_exts = py,png,jpg,kv,atlas,json
 version = 0.2
 requirements =
     kivy==1.11.1,
-    python3
+    python2
 
 orientation = portrait
 fullscreen = 0
