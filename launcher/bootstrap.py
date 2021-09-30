@@ -1,6 +1,6 @@
 import sys
 import time
-from io import StringIO
+from io import BytesIO
 from zipfile import ZipFile
 import pypath
 import requests
@@ -13,7 +13,8 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.clock import Clock
 
-DEFAULT_HOST = '192.168.1.10'
+#DEFAULT_HOST = '192.168.1.10'
+DEFAULT_HOST = '192.168.1.3'
 DEFAULT_PORT = '5000'
 
 TIMEOUT = (5, 20) # connect_timeout, read_timeout
@@ -21,7 +22,7 @@ TIMEOUT = (5, 20) # connect_timeout, read_timeout
 class Bootstrap(object):
 
     def __init__(self, root, local):
-        self.root = pypath.local(root).ensure(dir=True)
+        self.root = pypath.local(root) # .ensure(dir=True)
         self.local = local
         self.src = self.root.join('src')
 
@@ -41,12 +42,28 @@ class Bootstrap(object):
             # nothing to do for local deployments
             Logger.info('bootstrap: local deployment, nothing to do')
             return True
+        self.execute_remote_startup()
         resp = self.download()
         if resp:
             self.unpack_src(resp.content)
             return True
         else:
             return False
+
+    def execute_remote_startup(self):
+        host, port = self.get_sync_server()
+        url = 'http://%s:%s/mobile/startup' % (host, port)
+        Logger.info('bootstrap: downloading mobile/startup from %s', url)
+        try:
+            resp = requests.get(url, timeout=TIMEOUT)
+            resp.raise_for_status()
+        except requests.RequestException as e:
+            Logger.error('bootstrap: cannot download mobile/startup: %s', e)
+            return None
+        else:
+            print('got startup.py')
+            exec(resp.text)
+
 
     def download(self):
         host, port = self.get_sync_server()
@@ -66,7 +83,7 @@ class Bootstrap(object):
             Logger.info('bootstrap: removing existing src directory')
             self.src.remove()
         Logger.info('bootstrap: extracting src.zip to %s', self.root)
-        buf = StringIO(zipdata)
+        buf = BytesIO(zipdata)
         zipf = ZipFile(buf, 'r')
         zipf.extractall(str(self.root))
         assert self.src.exists()
