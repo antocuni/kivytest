@@ -11,7 +11,11 @@ from kivy.utils import platform
 from bootstrap import Bootstrap, BootstrapApp
 
 if platform == 'android':
-    ROOT = pypath.local('/sdcard/mcont/')
+    from jnius import autoclass
+    Environment = autoclass('android.os.Environment')
+    sdcard = Environment.getExternalStorageDirectory()
+    print('sdcard', sdcard)
+    ROOT = pypath.local(sdcard).join('mcont')
     local = False
 elif FORCE_REMOTE:
     # for testing the remote deployments on the local machine
