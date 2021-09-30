@@ -9,16 +9,8 @@ source.include_exts = py,png,jpg,kv,atlas,json
 
 version = 0.2
 requirements =
-    android,
-    hostpython3==3.8.1,
-    Kivy==1.9.1,
-    libiconv,
-    libzbar,
-    Pillow==7.0.0,
-    python3==3.8.1,
-    pyzbar==0.1.8,
-    xcamera==2019.928
-
+    kivy==1.11.1,
+    python3
 
 orientation = portrait
 fullscreen = 0
