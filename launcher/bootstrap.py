@@ -1,4 +1,5 @@
 import sys
+import os
 import time
 from io import BytesIO
 from zipfile import ZipFile
@@ -22,7 +23,7 @@ TIMEOUT = (5, 20) # connect_timeout, read_timeout
 class Bootstrap(object):
 
     def __init__(self, root, local):
-        self.root = pypath.local(root) # .ensure(dir=True)
+        self.root = pypath.local(root)
         self.local = local
         self.src = self.root.join('src')
 

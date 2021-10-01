@@ -6,19 +6,30 @@ if '--remote' in sys.argv:
 
 import pypath
 import kivy
-kivy.require('1.9.1')
+kivy.require('2.0.0')
 from kivy.utils import platform
 from bootstrap import Bootstrap, BootstrapApp
 
-if platform == 'android':
+def android_get_root():
     from jnius import autoclass
-    print('requesting permission...')
     from android.permissions import request_permissions, Permission
-    request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
+    request_permissions([Permission.READ_EXTERNAL_STORAGE,
+                         Permission.WRITE_EXTERNAL_STORAGE])
     Environment = autoclass('android.os.Environment')
     sdcard = Environment.getExternalStorageDirectory().getPath()
-    print('sdcard', sdcard)
-    ROOT = pypath.local(sdcard).join('mcont')
+    root = pypath.local(sdcard).join('mcont')
+    # make sure that the 'root' directory exists. Unfortunately, we cannot
+    # use .ensure(dir=True) because apparently python on android has
+    # problems with os.path.isdir: sometimes it returns True, sometimes
+    # False, randomly :(
+    try:
+        os.mkdir(root.strpath + '/')
+    except OSError:
+        pass
+    return root
+
+if platform == 'android':
+    ROOT = android_get_root()
     local = False
 elif FORCE_REMOTE:
     # for testing the remote deployments on the local machine
