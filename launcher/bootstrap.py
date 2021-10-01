@@ -29,7 +29,7 @@ class Bootstrap(object):
 
     def get_sync_server(self):
         ini = self.root.join('mcont.ini')
-        Logger.info('bootstrap: config file is', ini)
+        Logger.info('bootstrap: config file is %s', ini)
         if ini.exists():
             config = ConfigParser()
             config.read(str(ini))
