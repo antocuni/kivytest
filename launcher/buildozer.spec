@@ -1,13 +1,17 @@
 [app]
 
-title = Kivy py2 Generic Launcher
-package.name = launcher27
+title = Gestione Container 2
+package.name = mcont2
 package.domain = eu.antocuni
 
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,json
 
-version = 0.2
+presplash.filename = %(source.dir)s/data/icon.png
+icon.filename = %(source.dir)s/data/icon.png
+
+
+version = 1.0
 requirements = python3,kivy==2.0.0,libiconv,libzbar
 
 orientation = portrait
