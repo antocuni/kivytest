@@ -9,8 +9,10 @@ source.include_exts = py,png,jpg,kv,atlas,json
 
 version = 0.2
 requirements =
-    kivy==1.11.1,
-    python2
+    python3
+    kivy==2.0.0,
+    libiconv,
+    libzbar
 
 orientation = portrait
 fullscreen = 0
