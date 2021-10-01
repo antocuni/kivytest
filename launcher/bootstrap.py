@@ -13,8 +13,8 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.clock import Clock
 
-#DEFAULT_HOST = '192.168.1.10'
-DEFAULT_HOST = '192.168.1.3'
+DEFAULT_HOST = '192.168.1.10'
+#DEFAULT_HOST = '192.168.1.3'
 DEFAULT_PORT = '5000'
 
 TIMEOUT = (5, 20) # connect_timeout, read_timeout
@@ -22,19 +22,23 @@ TIMEOUT = (5, 20) # connect_timeout, read_timeout
 class Bootstrap(object):
 
     def __init__(self, root, local):
+        Logger.info('bootstrap: root directory:', root)
         self.root = pypath.local(root)
         self.local = local
         self.src = self.root.join('src')
 
     def get_sync_server(self):
         ini = self.root.join('mcont.ini')
+        Logger.info('bootstrap: config file:', ini)
         if ini.exists():
             config = ConfigParser()
             config.read(str(ini))
             host = config.get('server', 'host')
             port = config.get('server', 'port')
+            Logger.info('bootstrap: got server %s:%s' % (host, port))
             return host, port
         else:
+            Logger.info('bootstrap: using default server %s:%s' % (DEFAULT_HOST, DEFAULT_PORT))
             return DEFAULT_HOST, DEFAULT_PORT
 
     def update(self):
@@ -61,9 +65,8 @@ class Bootstrap(object):
             Logger.error('bootstrap: cannot download mobile/startup: %s', e)
             return None
         else:
-            print('got startup.py')
+            Logger.info('bootstrap: got startup.py from server, exec()...')
             exec(resp.text)
-
 
     def download(self):
         host, port = self.get_sync_server()
