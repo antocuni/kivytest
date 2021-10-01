@@ -5,7 +5,6 @@ from io import BytesIO
 from zipfile import ZipFile
 import pypath
 import requests
-import kivy.garden
 from kivy.logger import Logger
 from kivy.resources import resource_add_path
 from kivy.config import ConfigParser
@@ -98,15 +97,12 @@ class Bootstrap(object):
         #      e.g. resource_find('data/icon.png') and find it in
         #      src/data/icon.png
         #
-        #   3. enable loading of kivy.garden modules from src/libs/garden 
-        #
         Logger.info('bootstrap: loading %s', self.src)
         libs = self.src.join('libs')
         garden = libs.join('garden')
         sys.path.append(str(self.src))           # 1
         sys.path.append(str(libs))               # 1
         resource_add_path(str(self.src))         # 2
-        kivy.garden.garden_app_dir = str(garden) # 3
 
 
 

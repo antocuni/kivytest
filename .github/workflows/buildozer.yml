@@ -15,8 +15,8 @@ jobs:
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          #workdir: launcher
-          workdir: isdir_bug
+          workdir: launcher
+          #workdir: isdir_bug
           buildozer_version: stable
 
       - name: Upload artifacts
