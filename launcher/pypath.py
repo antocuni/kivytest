@@ -1,7 +1,9 @@
+import functools
 import os.path
 import shutil
 from glob import glob
 
+@functools.total_ordering
 class local(object):
 
     def __init__(self, path):
@@ -15,11 +17,22 @@ class local(object):
     def __repr__(self):
         return 'PyPath(%r)' % self.strpath
 
-    def __cmp__(self, other):
+    def __eq__(self, other):
         if isinstance(other, local):
-            return cmp(self.strpath, other.strpath)
-        else:
-            return cmp(self.strpath, other)
+            return self.strpath == other.strpath
+        if isinstance(other, str):
+            return self.strpath == other
+        return NotImplemented
+
+    def __ne__(self, other):
+        return not (self == other)
+
+    def __lt__(self, other):
+        if isinstance(other, local):
+            return self.strpath < other.strpath
+        if isinstance(other, str):
+            return self.strpath < other
+        return NotImplemented
 
     def __hash__(self):
         return hash(self.strpath)
