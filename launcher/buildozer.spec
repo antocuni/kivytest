@@ -12,7 +12,11 @@ icon.filename = %(source.dir)s/data/icon.png
 
 
 version = 1.0
-requirements = python3,kivy==2.0.0,libiconv,libzbar
+requirements = python3,
+               kivy==2.0.0,
+               libiconv,
+               libzbar,
+               pillow==7.0.0
 
 orientation = portrait
 fullscreen = 0
