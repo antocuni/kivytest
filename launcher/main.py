@@ -15,18 +15,24 @@ def android_get_root():
     from android.permissions import request_permissions, Permission
     request_permissions([Permission.READ_EXTERNAL_STORAGE,
                          Permission.WRITE_EXTERNAL_STORAGE])
-    Environment = autoclass('android.os.Environment')
-    sdcard = Environment.getExternalStorageDirectory().getPath()
-    root = pypath.local(sdcard).join('mcont')
-    # make sure that the 'root' directory exists. Unfortunately, we cannot
-    # use .ensure(dir=True) because apparently python on android has
-    # problems with os.path.isdir: sometimes it returns True, sometimes
-    # False, randomly :(
-    try:
-        os.mkdir(root.strpath + '/')
-    except OSError:
-        pass
+    ## Environment = autoclass('android.os.Environment')
+    ## sdcard = Environment.getExternalStorageDirectory().getPath()
+    ## root = pypath.local(sdcard).join('mcont')
+    ## # make sure that the 'root' directory exists. Unfortunately, we cannot
+    ## # use .ensure(dir=True) because apparently python on android has
+    ## # problems with os.path.isdir: sometimes it returns True, sometimes
+    ## # False, randomly :(
+    ## try:
+    ##     os.mkdir(root.strpath + '/')
+    ## except OSError:
+    ##     pass
+    ## return root
+
+    import android.storage
+    root = pypath.local(android.storage.app_storage_path())
+    print('android_get_root() ==>', root)
     return root
+
 
 if platform == 'android':
     ROOT = android_get_root()
