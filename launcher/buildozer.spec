@@ -22,7 +22,8 @@ orientation = portrait
 fullscreen = 0
 
 #android.arch = armeabi-v7a
-android.archs = armeabi-v7a # aab
+# .archs is needed with the aab buildozer version
+android.archs = armeabi-v7a
 
 android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE
 
@@ -40,7 +41,8 @@ android.minapi = 21
 android.private_storage = True
 
 
-p4a.branch = develop # for aab
+# for aab
+p4a.branch = develop
 android.release_artifact = aab 
 
 [buildozer]
