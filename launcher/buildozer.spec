@@ -11,7 +11,7 @@ presplash.filename = %(source.dir)s/data/icon.png
 icon.filename = %(source.dir)s/data/icon.png
 
 
-version = 1.0
+version = 0.1
 requirements = python3,
                kivy==2.0.0,
                libiconv,
