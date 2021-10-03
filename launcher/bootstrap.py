@@ -16,6 +16,7 @@ from kivy.clock import Clock
 DEFAULT_HOST = '192.168.1.10'
 DEFAULT_PORT = '5000'
 TIMEOUT = (5, 20) # connect_timeout, read_timeout
+SRC_URL = 'http://{host}:{port}/mobile/src.zip'
 
 class Bootstrap(object):
 
@@ -68,7 +69,7 @@ class Bootstrap(object):
 
     def download(self):
         host, port = self.get_sync_server()
-        url = 'http://%s:%s/mobile/src.zip' % (host, port)
+        url = SRC_URL.format(host=host, port=port)
         Logger.info('bootstrap: downloading src.zip from %s', url)
         try:
             resp = requests.get(url, timeout=TIMEOUT)
@@ -200,11 +201,11 @@ class BootstrapApp(App):
     def check_server(self):
         host = self.config.get('server', 'host')
         port = self.config.get('server', 'port')
-        url = 'http://%s:%s/mobile/md5' % (host, port)
+        url = SRC_URL.format(host=host, port=port)
         self.set_status('checking')
         def do(dt):
             try:
-                resp = requests.get(url, timeout=TIMEOUT)
+                resp = requests.head(url, timeout=TIMEOUT)
                 resp.raise_for_status()
             except requests.RequestException as e:
                 Logger.error('bootstrap: server still offline: %s', e)
