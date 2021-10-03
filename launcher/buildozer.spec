@@ -21,7 +21,9 @@ requirements = python3,
 orientation = portrait
 fullscreen = 0
 
-android.arch = armeabi-v7a
+#android.arch = armeabi-v7a
+android.archs = armeabi-v7a # aab
+
 android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE
 
 # (int) Target Android API, should be as high as possible.
@@ -37,6 +39,9 @@ android.minapi = 21
 # (bool) Use --private data storage (True) or --dir public storage (False)
 android.private_storage = True
 
+
+p4a.branch = develop # for aab
+android.release_artifact = aab 
 
 [buildozer]
 log_level = 2

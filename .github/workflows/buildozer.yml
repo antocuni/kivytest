@@ -16,11 +16,16 @@ jobs:
         id: buildozer
         with:
           workdir: launcher
-          #buildozer_version: stable
-          buildozer_version: 1.2.0
-          #command: buildozer android debug
-          command: buildozer android release
+          # #buildozer_version: stable
+          # buildozer_version: 1.2.0
+          # #command: buildozer android debug
+          # command: buildozer android release
 
+          # for aab (android bundle)
+          buildozer_version: feat/aab-support
+          
+          
+          
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
