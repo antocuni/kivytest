@@ -14,9 +14,7 @@ from kivy.lang import Builder
 from kivy.clock import Clock
 
 DEFAULT_HOST = '192.168.1.10'
-#DEFAULT_HOST = '192.168.1.3'
 DEFAULT_PORT = '5000'
-
 TIMEOUT = (5, 20) # connect_timeout, read_timeout
 
 class Bootstrap(object):
@@ -70,7 +68,7 @@ class Bootstrap(object):
 
     def download(self):
         host, port = self.get_sync_server()
-        url = 'http://%s:%s/mobile/download' % (host, port)
+        url = 'http://%s:%s/mobile/src.zip' % (host, port)
         Logger.info('bootstrap: downloading src.zip from %s', url)
         try:
             resp = requests.get(url, timeout=TIMEOUT)
