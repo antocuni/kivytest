@@ -23,7 +23,7 @@ fullscreen = 0
 
 #android.arch = armeabi-v7a
 # .archs is needed with the aab buildozer version
-android.archs = armeabi-v7a
+android.archs = armeabi-v7a,arm64-v8a
 
 android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE
 
