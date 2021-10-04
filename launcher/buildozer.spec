@@ -29,6 +29,7 @@ android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE
 
 # (int) Target Android API, should be as high as possible.
 #android.api = 27
+android.api = 30
 
 # (int) Minimum API your APK will support.
 android.minapi = 21
