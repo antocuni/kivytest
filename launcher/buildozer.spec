@@ -11,7 +11,13 @@ presplash.filename = %(source.dir)s/data/icon.png
 icon.filename = %(source.dir)s/data/icon.png
 
 
-version = 0.1
+version = 0.2
+
+# (int) overrides automatic versionCode computation (used in build.gradle)
+# this is not the same as app version and should only be edited if you know
+# what you're doing
+# android.numeric_version = 1
+
 requirements = python3,
                kivy==2.0.0,
                libiconv,
