@@ -19,7 +19,7 @@ jobs:
           # #buildozer_version: stable
           # buildozer_version: 1.2.0
           # #command: buildozer android debug
-          # command: buildozer android release
+          command: buildozer android release
 
           # for aab (android bundle)
           buildozer_version: git+https://github.com/misl6/buildozer.git@feat/aab-support
