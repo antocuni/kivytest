@@ -52,6 +52,11 @@ android.private_storage = True
 p4a.branch = develop
 android.release_artifact = aab 
 
+# (list) List of Java files to add to the android project (can be java or a
+# directory containing the files)
+# for storage.py
+android.add_src = java_src
+
 [buildozer]
 log_level = 2
 
