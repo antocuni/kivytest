@@ -22,7 +22,7 @@ jobs:
         with:
           workdir: ${{ env.buildozer_workdir }}
           buildozer_version: ${{ env.buildozer_version }}
-          command: buildozer android release
+          command: buildozer android debug
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
