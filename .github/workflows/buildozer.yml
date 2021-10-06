@@ -16,9 +16,9 @@ jobs:
         id: buildozer
         with:
           workdir: launcher
-          command: buildozer android release
           #buildozer_version: stable
           buildozer_version: git+https://github.com/misl6/buildozer.git@feat/aab-support
+          command: buildozer android release
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -40,9 +40,9 @@ jobs:
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          workdir: jobs.android-debug.buildozer.workdir
+          workdir: ${{ jobs.android-debug.buildozer.workdir }}
+          buildozer_version: ${{ jobs.android-debug.buildozer.buildozer_version }}
           command: buildozer android release
-          buildozer_version: jobs.android-debug.buildozer.buildozer_version
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
