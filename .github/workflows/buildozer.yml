@@ -34,7 +34,7 @@ jobs:
   android_release:
     name: Android (release)
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'buildozer-release')"
+    if: "contains(github.event.head_commit.message, 'release')"
 
     steps:
       - name: Checkout
@@ -46,7 +46,7 @@ jobs:
         with:
           workdir: ${{ env.buildozer_workdir }}
           buildozer_version: ${{ env.buildozer_version }}
-          command: buildozer android release
+          command: buildozer --profile aab android release
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2

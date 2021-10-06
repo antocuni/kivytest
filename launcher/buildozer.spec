@@ -27,10 +27,6 @@ requirements = python3,
 orientation = portrait
 fullscreen = 0
 
-#android.arch = armeabi-v7a
-# .archs is needed with the aab buildozer version
-android.archs = armeabi-v7a,arm64-v8a
-
 android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE
 
 # (int) Target Android API, should be as high as possible.
@@ -47,15 +43,27 @@ android.minapi = 21
 # (bool) Use --private data storage (True) or --dir public storage (False)
 android.private_storage = True
 
-
-# for aab
-p4a.branch = develop
-android.release_artifact = aab 
-
 # (list) List of Java files to add to the android project (can be java or a
 # directory containing the files)
 # for storage.py
 android.add_src = java_src
+
+# for aab
+p4a.branch = develop
+#android.release_artifact = aab
+
+#android.arch = armeabi-v7a
+# .archs is needed with the aab buildozer version
+android.archs = armeabi-v7a
+
+
+
+# profile to build a release aab ready for the play store
+[app@aab]
+
+android.archs = armeabi-v7a,arm64-v8a
+android.release_artifact = aab 
+
 
 [buildozer]
 log_level = 2
