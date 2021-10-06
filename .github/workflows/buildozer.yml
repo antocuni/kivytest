@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
 
-  android-debug:
+  android_debug:
     name: Android (debug)
     runs-on: ubuntu-latest
 
@@ -27,7 +27,7 @@ jobs:
           path: ${{ steps.buildozer.outputs.filename }}
 
 
-  android-release:
+  android_release:
     name: Android (release)
     runs-on: ubuntu-latest
     if: "contains(github.event.head_commit.message, 'buildozer-release')"
@@ -40,8 +40,8 @@ jobs:
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          workdir: ${{ job.android-debug.buildozer.workdir }}
-          buildozer_version: ${{ job.android-debug.buildozer.buildozer_version }}
+          workdir: ${{ job.android_debug.buildozer.workdir }}
+          buildozer_version: ${{ job.android_debug.buildozer.buildozer_version }}
           command: buildozer android release
 
       - name: Upload artifacts
