@@ -56,8 +56,7 @@ p4a.branch = develop
 # .archs is needed with the aab buildozer version
 android.archs = armeabi-v7a
 
-android.extra_manifest_application_arguments = 	android:requestLegacyExternalStorage="true"
-
+android.extra_manifest_application_arguments = application_arguments.xml.in
 
 # profile to build a release aab ready for the play store
 [app@aab]
