@@ -1,6 +1,11 @@
 name: Buildozer
 on: [push, pull_request]
 
+env:
+  buildozer_workdir: launcher
+  buildozer_version: git+https://github.com/misl6/buildozer.git@feat/aab-support
+  #buildozer_version: stable
+
 jobs:
 
   android_debug:
@@ -15,9 +20,8 @@ jobs:
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          workdir: launcher
-          #buildozer_version: stable
-          buildozer_version: git+https://github.com/misl6/buildozer.git@feat/aab-support
+          workdir: ${{ env.buildozer_workdir }}
+          buildozer_version: ${{ env.buildozer_version }}
           command: buildozer android release
 
       - name: Upload artifacts
@@ -40,8 +44,8 @@ jobs:
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          workdir: ${{ job.android_debug.buildozer.workdir }}
-          buildozer_version: ${{ job.android_debug.buildozer.buildozer_version }}
+          workdir: ${{ env.buildozer_workdir }}
+          buildozer_version: ${{ env.buildozer_version }}
           command: buildozer android release
 
       - name: Upload artifacts
