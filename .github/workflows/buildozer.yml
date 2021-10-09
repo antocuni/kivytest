@@ -3,7 +3,8 @@ on: [push, pull_request]
 
 env:
   buildozer_workdir: launcher
-  buildozer_version: git+https://github.com/misl6/buildozer.git@feat/aab-support
+  #buildozer_version: git+https://github.com/misl6/buildozer.git@feat/aab-support
+  buildozer_version: git+https://github.com/antocuni/buildozer.git@antocuni/aab-support-and-fileprovider
 
   # buildozer_workdir: Storage-Example
   # buildozer_version: stable
