@@ -53,8 +53,8 @@ android.add_src = java_src
 #android.release_artifact = aab
 
 # https://github.com/kivy/python-for-android/pull/1922
-p4a.fork = Fak3
-p4a.branch = fileprovider
+p4a.fork = antocuni
+p4a.branch = fileprovider-rebased
 
 
 #android.arch = armeabi-v7a
