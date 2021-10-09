@@ -49,8 +49,13 @@ android.private_storage = True
 android.add_src = java_src
 
 # for aab
-p4a.branch = develop
+#p4a.branch = develop
 #android.release_artifact = aab
+
+# https://github.com/kivy/python-for-android/pull/1922
+p4a.fork = Fak3
+p4a.branch = fileprovider
+
 
 #android.arch = armeabi-v7a
 # .archs is needed with the aab buildozer version
