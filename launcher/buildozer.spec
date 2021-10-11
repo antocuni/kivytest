@@ -55,7 +55,7 @@ android.add_src = java_src
 # https://github.com/kivy/python-for-android/pull/1922
 p4a.fork = antocuni
 p4a.branch = fileprovider-rebased
-
+p4a.extra_args = --fileprovider-paths=/github/workspace/launcher/file_paths.xml
 
 #android.arch = armeabi-v7a
 # .archs is needed with the aab buildozer version
