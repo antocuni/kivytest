@@ -11,7 +11,7 @@ presplash.filename = %(source.dir)s/data/icon.png
 icon.filename = %(source.dir)s/data/icon.png
 
 
-version = 0.2
+version = 0.4
 
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know
@@ -30,7 +30,6 @@ fullscreen = 0
 android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 27
 android.api = 30
 
 # (int) Minimum API your APK will support.
@@ -48,11 +47,8 @@ android.private_storage = True
 # for storage.py
 android.add_src = java_src
 
-# for aab
-#p4a.branch = develop
-#android.release_artifact = aab
-
 # https://github.com/kivy/python-for-android/pull/1922
+# https://github.com/kivy/buildozer/pull/1369
 p4a.fork = antocuni
 p4a.branch = fileprovider-rebased
 p4a.extra_args = --fileprovider-paths=/github/workspace/launcher/file_paths.xml
