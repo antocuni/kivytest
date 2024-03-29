@@ -30,7 +30,7 @@ fullscreen = 0
 android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE
 
 # (int) Target Android API, should be as high as possible.
-android.api = 30
+android.api = 33
 
 # (int) Minimum API your APK will support.
 android.minapi = 21
@@ -46,24 +46,23 @@ android.private_storage = True
 # directory containing the files)
 # for storage.py
 android.add_src = java_src
-
+#android.extra_manifest_application_arguments = application_arguments.xml.in
 # https://github.com/kivy/python-for-android/pull/1922
 # https://github.com/kivy/buildozer/pull/1369
-p4a.fork = antocuni
-p4a.branch = fileprovider-rebased
-p4a.extra_args = --fileprovider-paths=/github/workspace/launcher/file_paths.xml
-
+#p4a.fork = antocuni
+#p4a.branch = release-2024.01.21+fileprovider
+#p4a.extra_args = --fileprovider-paths=/home/kiwi/test3/kivy_android_builder/launcher/file_paths.xml
 #android.arch = armeabi-v7a
 # .archs is needed with the aab buildozer version
-android.archs = armeabi-v7a
+#android.archs = armeabi-v7a
 
-android.extra_manifest_application_arguments = application_arguments.xml.in
+#android.extra_manifest_application_arguments = application_arguments.xml.in
 
 # profile to build a release aab ready for the play store
-[app@aab]
+#[app@aab]
 
-android.archs = armeabi-v7a,arm64-v8a
-android.release_artifact = aab 
+#android.archs = armeabi-v7a,arm64-v8a
+#android.release_artifact = aab 
 
 
 [buildozer]
