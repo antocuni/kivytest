@@ -1,0 +1,78 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+       google()
+       jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+
+apply plugin: 'com.android.application'
+
+
+android {
+    namespace 'eu.antocuni.mcont2'
+    compileSdkVersion 33
+    buildToolsVersion '35.0.0-rc2'
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 10214
+        versionName '0.4'
+        manifestPlaceholders = [:]
+    }
+
+	
+	packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+        
+        exclude 'lib/**/gdbserver'
+        exclude 'lib/**/gdb.setup'
+	}
+	
+
+	
+
+    
+
+    buildTypes {
+        debug {
+        }
+        release {
+            
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            java {srcDir '/home/kiwi/test3/kivy_android_builder/launcher/java_src'}
+        }
+    }
+
+    aaptOptions {
+        noCompress "tflite"
+    }
+
+}
+
+dependencies {
+    
+}

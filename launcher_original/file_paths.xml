@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths  xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <!--
+       - /data/user/0/eu.antocuni.mcont2/files/
+       - visible only to the app
+       - Context.getFilesDir()
+       - android.storage.app_storage_path()
+  -->
+  <files-path name="myfiles_int" path="." />
+
+  <!--
+       - /storage/emulated/0/Android/data/eu.antocuni.mcont2/files/
+       - visible also to external apps and to the user
+       - Context.getExternalFilesDir()
+  -->
+  <external-files-path name="myfiles_ext" path="." />
+
+</paths>
