@@ -1,37 +1,36 @@
 # The lastest succesful build is with this details:
-# 2024-04-01
+# 2024-04-06
 # Buildozer 1.5.0
 # android-ndk-r25b
 # my branch of p4a: release-2024.01.21+fileprovider
 #
-# ls .buildozer/android/platform/build-arm64-v8a_armeabi-v7a/dists/mcont2/_python_bundle__armeabi-v7a/_python_bundle/site-packages/
-#    android/
-#    android-1.0-py3.11.egg-info
-#    bin/
-#    certifi/
-#    certifi-2024.2.2.dist-info/
-#    chardet/
-#    chardet-5.2.0.dist-info/
-#    _distutils_hack/
-#    distutils-precedence.pth
-#    idna/
-#    idna-3.6.dist-info/
-#    jnius/
-#    kivy/
-#    Kivy-2.0.0-py3.11.egg-info/
-#    PIL/
-#    Pillow-8.4.0-py3.11.egg-info/
-#    pkg_resources/
-#    pyjnius-1.6.1-py3.11.egg-info/
-#    requests/
-#    requests-2.31.0.dist-info/
-#    setuptools/
-#    setuptools-51.3.3-py3.11.egg-info/
-#    six-1.15.0-py3.11.egg-info
-#    urllib3/
-#    urllib3-2.2.1.dist-info/
-#    usr/
-#
+# ls .buildozer/android/platform/build-arm64-v8a_armeabi-v7a/dists/mcont2/_python_bundle__armeabi-v7a/_python_bundle/site-packages/ -1
+# android/
+# android-1.0-py3.11.egg-info
+# bin/
+# certifi/
+# certifi-2024.2.2.dist-info/
+# chardet/
+# chardet-5.2.0.dist-info/
+# _distutils_hack/
+# distutils-precedence.pth
+# idna/
+# idna-3.6.dist-info/
+# jnius/
+# kivy/
+# Kivy-2.3.0-py3.11.egg-info/
+# PIL/
+# Pillow-8.4.0-py3.11.egg-info/
+# pkg_resources/
+# pyjnius-1.6.1-py3.11.egg-info/
+# requests/
+# requests-2.31.0.dist-info/
+# setuptools/
+# setuptools-51.3.3-py3.11.egg-info/
+# six-1.15.0-py3.11.egg-info
+# urllib3/
+# urllib3-2.2.1.dist-info/
+# usr/
 
 [app]
 
@@ -53,7 +52,7 @@ version = 0.5
 # android.numeric_version = 1
 
 requirements = python3,
-               kivy==2.0.0,
+               kivy==2.3.0,
                libiconv,
                libzbar,
                pillow==7.0.0
